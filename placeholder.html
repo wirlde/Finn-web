@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction 🚧</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: #e0e0e0; text-align: center; margin: 0; padding: 0; overflow-x: hidden; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        #weather-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1; }
+        .raindrop { position: absolute; background: linear-gradient(transparent, rgba(255, 255, 255, 0.4)); width: 2px; height: 40px; animation: rain-fall linear infinite; }
+        .petal { position: absolute; background-color: #ffb7c5; border-radius: 15px 0 15px 0; opacity: 0.8; box-shadow: 0 0 5px rgba(255, 183, 197, 0.5); animation: petal-fall linear infinite; }
+        @keyframes rain-fall { 0% { transform: translateY(-10vh); } 100% { transform: translateY(110vh); } }
+        @keyframes petal-fall { 0% { transform: translateY(-10vh) translateX(0) rotate(0deg); } 50% { transform: translateY(50vh) translateX(25px) rotate(180deg); } 100% { transform: translateY(110vh) translateX(-25px) rotate(360deg); } }
+        .container { background-color: rgba(20, 20, 20, 0.65); border: 1px solid #444; border-radius: 15px; padding: 50px; max-width: 500px; backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        h1 { color: #3498db; margin-bottom: 10px; }
+        p { font-size: 1.1em; line-height: 1.6; }
+        .mascots { font-size: 3em; margin: 20px 0; }
+        a.back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #e74c3c; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.2s; }
+        a.back-btn:hover { background-color: #c0392b; }
+    </style>
+</head>
+<body>
+    <div id="weather-container"></div>
+    <div class="container">
+        <h1>🚧 Page in Progress 🚧</h1>
+        <div class="mascots">🐈‍⬛ 🔨 👹</div>
+        <p>Chococat and Domo are currently building this section. Check back later for more Affliction gear and Minecraft servers.</p>
+        <a href="index.html" class="back-btn">⬅️ Back to Finn's Zone</a>
+    </div>
+    <script>
+        function createWeather() {
+            const container = document.getElementById('weather-container');
+            for (let i = 0; i < 100; i++) {
+                let drop = document.createElement('div');
+                drop.classList.add('raindrop');
+                drop.style.left = Math.random() * 100 + 'vw';
+                drop.style.animationDuration = (Math.random() * 0.5 + 0.5) + 's';
+                drop.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(drop);
+            }
+            for (let i = 0; i < 35; i++) {
+                let petal = document.createElement('div');
+                petal.classList.add('petal');
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                let size = Math.random() * 10 + 8;
+                petal.style.width = size + 'px';
+                petal.style.height = size + 'px';
+                container.appendChild(petal);
+            }
+        }
+        createWeather();
+    </script>
+</body>
+</html>
